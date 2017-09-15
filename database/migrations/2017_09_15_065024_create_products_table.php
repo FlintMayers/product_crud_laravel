@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->string('email');
             $table->string('phone');
             $table->string('subscription');
-            $table->string('avatar');
+            $table->string('avatar')->nullable();
             $table->timestamps();
         });
     }

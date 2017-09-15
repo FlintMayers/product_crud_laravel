@@ -53,7 +53,7 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect()->back();
+        return redirect()->route('product.index');
     }
 
     /**
@@ -79,6 +79,9 @@ class ProductController extends Controller
     public function edit($id)
     {
         //
+        $product = Product::find($id);
+
+        return view('product.edit', compact('product'));
     }
 
     /**
@@ -91,6 +94,21 @@ class ProductController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $product = Product::find($id);
+        $product->name = $request->name;
+        $product->surname = $request->surname;
+        $product->email = $request->email;
+        $product->phone = $request->phone;
+        $product->subscription = $request->subscription;
+
+        if($file = $request->file('avatar')) {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('avatar', $name);
+            $product->avatar = $name;
+        }
+
+        $product->save();
+        return redirect()->route('product.index');
     }
 
     /**
@@ -102,5 +120,8 @@ class ProductController extends Controller
     public function destroy($id)
     {
         //
+        $product = Product::find($id);
+        $product->delete();
+        return redirect()->route('product.index');
     }
 }
