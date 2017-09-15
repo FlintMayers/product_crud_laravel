@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\SubscriberRequest;
 use App\Product;
 use Illuminate\Http\Request;
 
@@ -36,7 +37,7 @@ class ProductController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SubscriberRequest $request)
     {
         //
         $product = new Product();
@@ -53,7 +54,7 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', 'Subscriber registered successfully!');
     }
 
     /**
@@ -91,7 +92,7 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(SubscriberRequest $request, $id)
     {
         //
         $product = Product::find($id);
@@ -108,7 +109,7 @@ class ProductController extends Controller
         }
 
         $product->save();
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', 'Subscriber data updated successfully!');
     }
 
     /**
@@ -122,6 +123,6 @@ class ProductController extends Controller
         //
         $product = Product::find($id);
         $product->delete();
-        return redirect()->route('product.index');
+        return redirect()->route('product.index')->with('success', 'Subscriber deleted successfully!');
     }
 }

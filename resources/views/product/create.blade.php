@@ -1,11 +1,17 @@
 @extends('layouts.app')
 
+@section('stylesheets')
+    <link href="{{ asset('css/form_styling.css') }}" rel="stylesheet">
+@endsection
+
 @section('content')
 
     <div class="container">
         <div class="row">
-            <div class="col-sm-6 col-sm-offset-3">
-                <h1 class="text-center">Subscribe</h1>
+        @include('errors')
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+                <h2>Please Subscribe <small>It's free and always will be.</small></h2>
+                <hr class="colorgraph">
 
                 {!! Form::open(['method' => 'POST', 'action' => 'ProductController@store', 'files' => true]) !!}
                     @include('product.form')
@@ -14,25 +20,12 @@
                     </div>
                 {!! Form::close() !!}
             </div>
-
-            <div class="col-sm-6 col-sm-offset-3">
-            @if (count($errors) > 0)
-                <!--   	klaidos -->
-                    <div class="row">
-                        <div class="alert alert-danger">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                @endif
-            </div>
         </div>
 
     </div>
 
+@endsection
 
-
+@section('scripts')
+    <script src="{{ asset('js/form_styles.js') }}"></script>
 @endsection
