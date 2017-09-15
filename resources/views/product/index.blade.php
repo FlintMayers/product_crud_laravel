@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('stylesheets')
-    <link href="{{ asset('css/showproduct.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/product_list.css') }}" rel="stylesheet">
 @endsection
 
 @section('content')
@@ -26,7 +26,7 @@
                                 @foreach($products as $product)
                                 <tr>
                                     <td>
-                                        <img src="https://bootdey.com/img/Content/user_1.jpg" alt="">
+                                        <img src={{ $product->avatar ? asset( 'avatar/' . $product->avatar) : asset( 'avatar/default_avatar.png') }} alt="">
                                         <a href="#" class="user-link">{{ $product->name }} {{ $product->surname }}</a>
                                         <span class="user-subhead">Subscriber</span>
                                     </td>
@@ -58,6 +58,7 @@
                         </div>
                     </div>
                 </div>
+                {{ $products->links() }}
             </div>
         </div>
     </div>

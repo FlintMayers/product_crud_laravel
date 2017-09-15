@@ -5,43 +5,13 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-sm-offset-3">
-                <h1 class="text-center">Subscribe</h1>
+                <h1 class="text-center">Edit Subscriber data</h1>
 
                 {!! Form::model($product, ['route' => ['product.update', $product->id], 'class' => 'form-horizontal', 'method' => 'put']) !!}
-{{--                {!! Form::open(['method' => 'POST', 'action' => 'ProductController@store', 'files' => true]) !!}--}}
-                <div class="form-group">
-                    {!! Form::label('name', 'First Name') !!}
-                    {!! Form::text('name', null, ['class' => 'form-control']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('surname', 'Last Name') !!}
-                    {!! Form::text('surname', null, ['class' => 'form-control']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('email', 'Email') !!}
-                    {!! Form::email('email', null, ['class' => 'form-control']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('phone', 'Phone') !!}
-                    {!! Form::text('phone', null, ['class' => 'form-control']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('subscription', 'Subscription Type') !!}
-                    {!! Form::select('subscription', array('Monthly' => 'Monthly', 'Yearly' => 'Yearly'), 0, ['class' => 'form-control']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::label('avatar', 'Optional: upload your avatar') !!}
-                    {!! Form::file('avatar', null, ['class' => 'form-control']) !!}
-                </div>
-
-                <div class="form-group">
-                    {!! Form::submit('Subscribe', ['class' => 'btn btn-success col-xs-12']) !!}
-                </div>
+                    @include('product.form')
+                    <div class="form-group">
+                        {!! Form::submit('Update', ['class' => 'btn btn-success col-xs-12']) !!}
+                    </div>
                 {!! Form::close() !!}
             </div>
 
