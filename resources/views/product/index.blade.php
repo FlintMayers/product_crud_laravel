@@ -2,6 +2,8 @@
 
 @section('stylesheets')
     <link href="{{ asset('css/product_list.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/landing_styles.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>
 @endsection
 
 @section('content')
@@ -24,7 +26,7 @@
                 <div class="main-box no-header clearfix">
                     <div class="main-box-body clearfix">
                         <div class="table-responsive">
-                            <table class="table user-list">
+                            <table id="products" class="table user-list">
                                 <thead>
                                 <tr>
                                     <th><span>Name</span></th>
@@ -39,7 +41,7 @@
                                 <tr>
                                     <td>
                                         <img src={{ $product->avatar ? asset( 'avatar/' . $product->avatar) : asset( 'avatar/default_avatar.png') }} alt="">
-                                        <a href="#" class="user-link">{{ $product->name }} {{ $product->surname }}</a>
+                                        <a href="{{ route('product.show', $product->id) }}" class="user-link">{{ $product->name }} {{ $product->surname }}</a>
                                         <span class="user-subhead">Subscriber</span>
                                     </td>
                                     <td>{{ $product->created_at->diffForHumans() }}</td>
@@ -75,4 +77,9 @@
         </div>
     </div>
 
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+    <script src="{{ asset('js/index_styles.js') }}"></script>
 @endsection

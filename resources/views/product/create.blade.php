@@ -10,7 +10,8 @@
         <div class="row">
         @include('errors')
             <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-                <h2>Please Subscribe <small>It's free and always will be.</small></h2>
+                <h2>Form <small>Subscribe to our Newsletter and stay tuned.</small></h2>
+
                 <hr class="colorgraph">
 
                 {!! Form::open(['method' => 'POST', 'action' => 'ProductController@store', 'files' => true]) !!}

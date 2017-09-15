@@ -6,23 +6,6 @@
 
 @section('content')
 
-    {{--<div class="container">--}}
-        {{--<div class="col-sm-6 col-sm-offset-3">--}}
-            {{--<div class="well">--}}
-                {{--<h4>Created at: {{ $product->created_at }}</h4>--}}
-                {{--<h3>Name: {{ $product->name }}</h3>--}}
-                {{--<h3>Surname: {{ $product->surname }}</h3>--}}
-                {{--<h3>Email: {{ $product->email }}</h3>--}}
-                {{--<h3>Subscription type: {{ $product->subscription }}</h3>--}}
-                {{--<img src={{ $product->avatar ? asset( 'avatar/' . $product->avatar) : asset( 'avatar/default_avatar.png') }}  alt="" width="100" height="100">--}}
-
-                {{--{{ Form::open(['method' => 'DELETE', 'route' => ['product.destroy', $product->id]]) }}--}}
-                    {{--{{ Form::submit('Delete', ['class' => 'btn btn-danger']) }}--}}
-                {{--{{ Form::close() }}--}}
-            {{--</div>--}}
-        {{--</div>--}}
-    {{--</div>--}}
-
     <div class="container">
         <div class="row">
 

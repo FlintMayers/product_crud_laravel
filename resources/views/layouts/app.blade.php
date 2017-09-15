@@ -7,8 +7,9 @@
 
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
-
-        <title>Magazine Subscription</title>
+        {{--<link rel="shortcut icon" href="{{{ asset('img/favicon.png') }}}">--}}
+        {{--<link rel="shortcut icon" href="{{ asset('favicon.ico') }}">--}}
+        <title>Newsletter of Peace</title>
 
         <!-- Styles -->
         @yield('stylesheets')
@@ -18,6 +19,7 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
     <body>
+
         <div id="app">
             <nav class="navbar navbar-default navbar-static-top">
                 <div class="container">
@@ -33,7 +35,7 @@
 
                         <!-- Branding Image -->
                         <a class="navbar-brand" href="{{ route('product.create') }}">
-                            Landing page
+                            Newsletter
                         </a>
                     </div>
 
@@ -56,11 +58,12 @@
         </div>
 
         <!-- Scripts -->
-        <script
-                src="https://code.jquery.com/jquery-3.2.1.min.js"
-                integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-                crossorigin="anonymous"></script>
-        @yield('scripts')
+        {{--<script--}}
+                {{--src="https://code.jquery.com/jquery-3.2.1.min.js"--}}
+                {{--integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="--}}
+                {{--crossorigin="anonymous"></script>--}}
         <script src="{{ asset('js/app.js') }}"></script>
+        @yield('scripts')
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
     </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\SubscriberRequest;
 use App\Product;
+use Illuminate\Http\File;
 use Illuminate\Http\Request;
 
 class ProductController extends Controller
@@ -16,7 +17,7 @@ class ProductController extends Controller
     public function index()
     {
         //
-        $products = Product::paginate(1);
+        $products = Product::paginate(2);
         return view('product.index', compact('products'));
     }
 
@@ -122,7 +123,10 @@ class ProductController extends Controller
     {
         //
         $product = Product::find($id);
+
         $product->delete();
+        echo 'success';
+        die();
         return redirect()->route('product.index')->with('success', 'Subscriber deleted successfully!');
     }
 }

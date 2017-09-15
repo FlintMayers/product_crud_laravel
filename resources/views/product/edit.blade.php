@@ -13,7 +13,7 @@
                 <h2>Subscriber data <small>Edit page.</small></h2>
                 <hr class="colorgraph">
 
-                {!! Form::model($product, ['route' => ['product.update', $product->id], 'class' => 'form-horizontal', 'method' => 'put']) !!}
+                {!! Form::model($product, ['route' => ['product.update', $product->id], 'class' => 'form-horizontal', 'method' => 'put', 'files' => true]) !!}
                     @include('product.form')
                     <div class="form-group">
                         {!! Form::submit('Update', ['class' => 'btn btn-success col-xs-12']) !!}
