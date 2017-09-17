@@ -13,7 +13,7 @@ open terminal in your htdocs dir and run the following commands:
 * git init 
 * git pull https://github.com/FlintMayers/product_crud_laravel.git
 * composer install
-* cp .env .example
+* cp .env.example .env
 * php artisan key:generate
 
 create a database for this project
